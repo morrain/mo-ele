@@ -8,7 +8,7 @@
       Mauris sagittis pellentesque lacus eleifend lacinia...
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" @click='test'>
         Get Started
       </a>
     </div>
@@ -26,6 +26,13 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js PWA'
+    }
+  },
+  methods: {
+    test: function (event) {
+      this.$axios.post('/api/login').then(res => {
+        console.log(res)
+      })
     }
   }
 }

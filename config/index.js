@@ -41,7 +41,15 @@ module.exports = {
     assetsPublicPath: '/',
     // proxyTable 代理的接口（可跨域）
     // 使用方法：https://vuejs-templates.github.io/webpack/proxy.html
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://result.eolinker.com',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/api': '/zNUy9HVf8971adf066359748efa72d3d58a194af65b28f2?uri=/api'
+        }
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
