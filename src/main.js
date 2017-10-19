@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// 引入material design
+require('../node_modules/material-design-lite/material.min.css')
+require('../node_modules/material-design-lite/material.min.js')
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

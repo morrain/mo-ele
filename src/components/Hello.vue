@@ -1,21 +1,22 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ msg }}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Mauris sagittis pellentesque lacus eleifend lacinia...
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Get Started
+      </a>
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">share</i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -32,21 +33,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1, h2 {
-  font-weight: normal;
+.demo-card-wide.mdl-card {
+  width: 512px;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/demo/welcome_card.jpg') center / cover;
 }
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #35495E;
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
 }
 </style>
