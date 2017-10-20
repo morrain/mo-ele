@@ -7,7 +7,7 @@ import NotFound from '@/components/NotFound'
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [{
     path: '/hello/:username',
     component: Hello,
@@ -19,7 +19,11 @@ export default new Router({
     }, {
       path: 'profile',
       component: UserProfile,
-      props: true
+      props: true,
+      beforeEnter: (to, from, next) => {
+        console.log('router.beforeEnter---to:', to.path, 'from:', from.path)
+        next();
+      }
     }, {
       path: 'post',
       component: UserPost,
@@ -30,3 +34,19 @@ export default new Router({
     component: NotFound
   }]
 })
+
+router.beforeEach((to, from, next) => {
+  console.log('router.beforeEach---to:', to.path, 'from:', from.path)
+  next();
+});
+
+router.beforeResolve((to, from, next) => {
+  console.log('router.beforeResolve---to:', to.path, 'from:', from.path)
+  next();
+});
+
+router.afterEach((to, from) => {
+  console.log('router.afterEach---to:', to.path, 'from:', from.path)
+});
+
+export default router
