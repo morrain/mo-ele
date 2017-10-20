@@ -1,7 +1,7 @@
 <template>
   <div class="demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{ msg }}</h2>
+      <h2 class="mdl-card__title-text">{{ $route.params.username }}</h2>
     </div>
     <div class="mdl-card__supporting-text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...
@@ -25,6 +25,10 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js PWA'
     }
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log('to:', to, 'from:', from);
+    next();
   },
   methods: {
     test: function(event) {

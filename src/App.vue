@@ -2,6 +2,8 @@
   <div id="app">
     <header>
       <span>Vue.js PWA</span>
+      <router-link to="/hello/abc">abc</router-link>
+      <router-link to="/hello/efg">efg</router-link>
     </header>
     <main>
       <router-view></router-view>
