@@ -10,15 +10,19 @@ export default new Router({
   routes: [{
     path: '/hello/:username',
     component: Hello,
+    props: true,
     children: [{
       path: '',
-      component: UserProfile
+      component: UserProfile,
+      props: true
     }, {
       path: 'profile',
-      component: UserProfile
+      component: UserProfile,
+      props: true
     }, {
       path: 'post',
-      component: UserPost
+      component: UserPost,
+      props: true
     }]
   }]
 })

@@ -1,7 +1,7 @@
 <template>
   <div class="demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{ $route.params.username }}</h2>
+      <h2 class="mdl-card__title-text">{{ username }}</h2>
     </div>
     <router-view></router-view>
     <div class="mdl-card__actions mdl-card--border">
@@ -19,6 +19,7 @@
 <script>
 export default {
   name: 'hello',
+  props: ['username'],
   data() {
     return {
       msg: 'Welcome to Your Vue.js PWA'

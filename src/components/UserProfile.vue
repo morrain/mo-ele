@@ -1,21 +1,23 @@
 <template>
-	<div class="mdl-card__supporting-text">
-		User Perofile for {{$route.params.username}}
-    </div>
+  <div class="mdl-card__supporting-text">
+    User Perofile for {{username}}
+  </div>
 </template>
-
 <script>
 export default {
 
   name: 'UserProfile',
+  props: ['username'],
 
-  data () {
+  data() {
     return {
 
     };
   }
 };
-</script>
 
+</script>
 <style lang="css" scoped>
+
+
 </style>

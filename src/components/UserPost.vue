@@ -1,21 +1,23 @@
 <template>
-	<div class="mdl-card__supporting-text">
-		User Post for {{$route.params.username}}
-    </div>
+  <div class="mdl-card__supporting-text">
+    User Post for {{username}}
+  </div>
 </template>
-
 <script>
 export default {
 
   name: 'UserPost',
+  props: ['username'],
 
-  data () {
+  data() {
     return {
 
     };
   }
 };
-</script>
 
+</script>
 <style lang="css" scoped>
+
+
 </style>
