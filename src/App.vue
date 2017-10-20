@@ -8,13 +8,12 @@
     </main>
   </div>
 </template>
-
 <script>
 export default {
   name: 'app'
 }
-</script>
 
+</script>
 <style>
 body {
   margin: 0;
@@ -51,4 +50,5 @@ header span {
   box-sizing: border-box;
   padding-top: 16px;
 }
+
 </style>
