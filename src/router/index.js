@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import UserProfile from '@/components/UserProfile'
 import UserPost from '@/components/UserPost'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router);
 
@@ -24,5 +25,8 @@ export default new Router({
       component: UserPost,
       props: true
     }]
+  }, {
+    path: '*',
+    component: NotFound
   }]
 })
