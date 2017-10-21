@@ -26,6 +26,8 @@ module.exports = {
 
     'space-before-function-paren': 0,
     //允许使用封号
-    'semi': 0
+    'semi': 0,
+
+    'spaced-comment': 0
   }
 }
