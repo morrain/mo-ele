@@ -1,7 +1,7 @@
 <template>
-  <div class="mdl-card__supporting-text">
+  <md-card-content>
     User Perofile for {{username}}
-  </div>
+  </md-card-content>
 </template>
 <script>
 export default {

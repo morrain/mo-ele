@@ -43,10 +43,10 @@ module.exports = {
     // 使用方法：https://vuejs-templates.github.io/webpack/proxy.html
     proxyTable: {
       '/api': {
-        target: 'http://result.eolinker.com',
+        target: 'http://www.easy-mock.com',
         changeOrigin: true,
         pathRewrite: {
-            '^/api': '/zNUy9HVf8971adf066359748efa72d3d58a194af65b28f2?uri=/api'
+            '^/api': '/mock/59e89a0921a50c465d91eeef/api'
         }
       }
     },
