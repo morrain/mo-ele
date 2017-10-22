@@ -40,18 +40,5 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.demo-card-wide.mdl-card {
-  width: 512px;
-}
-
-.demo-card-wide>.mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('../assets/demo/welcome_card.jpg') center / cover;
-}
-
-.demo-card-wide>.mdl-card__menu {
-  color: #fff;
-}
 
 </style>
