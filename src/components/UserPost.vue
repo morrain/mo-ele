@@ -2,7 +2,7 @@
   <md-card-content>
     User Post for {{username}}
     <md-spinner md-indeterminate class="md-warn" v-if="loading"></md-spinner>
-    <md-table v-once>
+    <md-table v-if="citys">
       <md-table-header>
         <md-table-row>
           <md-table-head>Name</md-table-head>
