@@ -8,6 +8,7 @@ import NotFound from '@/components/NotFound'
 Vue.use(Router);
 
 const router = new Router({
+  mode: 'history',//改成history让支持histroy的浏览器使用histroy模式，不支持的会强制使用hash模式
   routes: [{
     path: '/hello/:username',
     component: Hello,
