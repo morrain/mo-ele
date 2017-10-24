@@ -11,7 +11,7 @@
         </md-table-row>
       </md-table-header>
       <md-table-body>
-        <md-table-row v-for="city in citys">
+        <md-table-row v-for="city in citys" :key="city.id">
           <md-table-cell>{{city.name}}</md-table-cell>
           <md-table-cell>{{city.id}}</md-table-cell>
           <md-table-cell>{{city.abbr}}</md-table-cell>
