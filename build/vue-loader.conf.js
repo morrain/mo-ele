@@ -15,7 +15,7 @@ module.exports = {
     image: 'xlink:href'
   },
   postcss: [require('autoprefixer')(), require('postcss-px-to-viewport')({
-    viewportWidth: 750, //根据视觉稿设置屏幕宽高 750px 是iphone 6 的尺寸。
+    viewportWidth: 750, //根据视觉稿设置屏幕宽高 750px 是iphone 6 的尺寸。https://www.w3cplus.com/css/vw-for-layout.html
     viewportHeight: 1334
   })]
 }
