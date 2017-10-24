@@ -12,16 +12,28 @@
     <footer>
       <el-row>
         <el-col :span="6">
-          <div class="grid-content bg-purple"></div>
+          <router-link class="grid-content" to="/hello/abc/profile" tag="div">
+            <i class="el-icon-mo-eleme"></i>
+            <span>外卖</span>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
+          <router-link class="grid-content" to="/hello/abc/post" tag="div">
+            <i class="el-icon-mo-find"></i>
+            <span>发现</span>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content bg-purple"></div>
+          <router-link class="grid-content" to="/hello/efg/profile" tag="div">
+            <i class="el-icon-mo-order"></i>
+            <span>订单</span>
+          </router-link>
         </el-col>
         <el-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
+          <router-link class="grid-content" to="/hello/efg/post" tag="div">
+            <i class="el-icon-mo-mine"></i>
+            <span>我的</span>
+          </router-link>
         </el-col>
       </el-row>
     </footer>
@@ -34,7 +46,6 @@ export default {
 
 </script>
 <style lang='scss'>
-
 //引入项目图标库，使用http://iconfont.cn/  托管
 [class^="el-icon-mo"],
 [class*="el-icon-mo"] {
@@ -54,34 +65,34 @@ footer {
   bottom: 0;
   z-index: 999;
   background: #fff;
-  height: 120px;
   .el-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
+    padding: 12px 0;
+    .el-col {
+      border-radius: 4px;
+      .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+        text-align: center;
+        color: #666;
+        >i {
+          font-size: 46px;
+        }
+        >span {
+          display: block;
+          font-size: 18px;
+          line-height: 30px;
+        }
+
+        &.router-link-exact-active {
+          color: #0089dc
+        }
+      }
     }
   }
 
-  .el-col {
-    border-radius: 4px;
-  }
 
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
 
-  .bg-purple {
-    background: #d3dce6;
-  }
 
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
 
   .row-bg {
     padding: 10px 0;
