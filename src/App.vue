@@ -4,6 +4,7 @@
       <span>Vue.js PWA</span>
       <router-link to="/hello/abc/profile">abc</router-link>
       <router-link to="/hello/efg/post">efg</router-link>
+      <el-input icon="mo-eleme" />
     </header>
     <main>
       <router-view></router-view>
@@ -33,40 +34,16 @@ export default {
 
 </script>
 <style lang='scss'>
-body {
-  margin: 0;
-}
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+//引入项目图标库，使用http://iconfont.cn/  托管
+[class^="el-icon-mo"],
+[class*="el-icon-mo"] {
+  font-family: "mo-ele-iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-main {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale
 }
 
 footer {

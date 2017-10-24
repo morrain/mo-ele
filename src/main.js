@@ -8,6 +8,8 @@ import 'normalize.css' //引入标准样式，相当于样式重置
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
+import './assets/mo-fonts.css'
+
 import App from './App'
 import router from './router'
 import axios from 'axios'
