@@ -4,9 +4,8 @@ var isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   loaders: utils.cssLoaders({
-    sourceMap: isProduction
-      ? config.build.productionSourceMap
-      : config.dev.cssSourceMap,
+    sourceMap: isProduction ?
+      config.build.productionSourceMap : config.dev.cssSourceMap,
     extract: isProduction
   }),
   transformToRequire: {
@@ -15,5 +14,8 @@ module.exports = {
     img: 'src',
     image: 'xlink:href'
   },
-  postcss: [require('autoprefixer')()]
+  postcss: [require('autoprefixer')(), require('postcss-px-to-viewport')({
+    viewportWidth: 750, //根据视觉稿设置屏幕宽高 750px 是iphone 6 的尺寸。
+    viewportHeight: 1334
+  })]
 }
