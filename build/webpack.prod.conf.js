@@ -98,7 +98,8 @@ var webpackConfig = merge(baseWebpackConfig, {
       // 必须通过 CommonsChunkPlugin一致地处理多个 chunks
       chunksSortMode: 'dependency',
       serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname,
-        './service-worker-prod.js'))}</script>`
+        './service-worker-prod.js'))}</script>`,
+      subDirectory: config.build.assetsSubDirectory
     }),
     // split vendor js into its own file
     // 分割公共 js 到独立的文件

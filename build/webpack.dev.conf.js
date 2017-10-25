@@ -50,7 +50,8 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true,
       serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
-        './service-worker-dev.js'), 'utf-8')}</script>`
+        './service-worker-dev.js'), 'utf-8')}</script>`,
+      subDirectory: config.dev.assetsSubDirectory
     }),
     new FriendlyErrorsPlugin()
   ]
