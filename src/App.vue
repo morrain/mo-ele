@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-      <router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 <script>
 export default {
   name: 'app'
 }
-</script>
 
+</script>
 <style src='normalize.css'></style>
 <style src='./assets/mo-fonts.css'></style>
 <style src='mint-ui/lib/style.css'></style>
-
 <style lang='scss'>
 //引入项目图标库，使用http://iconfont.cn/  托管
-[class^="el-icon-mo"],
-[class*="el-icon-mo"] {
+[class^="mo-ele-iconfont"],
+[class*="mo-ele-iconfont"] {
   font-family: "mo-ele-iconfont" !important;
   font-size: 16px;
   font-style: normal;

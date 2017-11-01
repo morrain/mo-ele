@@ -2,25 +2,25 @@
   <mt-tabbar class="footer" fixed>
     <mt-tab-item id="msite">
       <router-link class="grid-content" to="/" tag="div">
-        <i class="el-icon-mo-eleme"></i>
+        <i class="mo-ele-iconfont icon-eleme"></i>
         <span>外卖</span>
       </router-link>
     </mt-tab-item>
     <mt-tab-item id="discover">
       <router-link class="grid-content" to="/discover" tag="div">
-        <i class="el-icon-mo-find"></i>
+        <i class="mo-ele-iconfont icon-find"></i>
         <span>发现</span>
       </router-link>
     </mt-tab-item>
     <mt-tab-item id="order">
       <router-link class="grid-content" to="/order" tag="div">
-        <i class="el-icon-mo-order"></i>
+        <i class="mo-ele-iconfont icon-order"></i>
         <span>订单</span>
       </router-link>
     </mt-tab-item>
     <mt-tab-item id="mine">
       <router-link class="grid-content" to="/mine" tag="div">
-        <i class="el-icon-mo-mine"></i>
+        <i class="mo-ele-iconfont icon-mine"></i>
         <span>我的</span>
       </router-link>
     </mt-tab-item>
