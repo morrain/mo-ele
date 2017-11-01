@@ -4,7 +4,7 @@
       <div class="container">
         <div class="left">
           <i class="mo-ele-iconfont icon-location"></i>
-          <span>广州市人民政府广州市人大常委会</span>
+          <span>{{address}}</span>
           <i class="mo-ele-iconfont icon-arrow-down"></i>
         </div>
         <div class="right">
@@ -25,9 +25,68 @@
 </template>
 <script>
 import footerGuide from '@/components/footerGuide'
+import { mapState, mapActions } from 'vuex'
 export default {
 
   name: 'msite',
+
+  mounted() {
+    this.getCurrentPosition();
+  },
+
+  methods: {
+    ...mapActions([
+      'getCurrentPositionInfo'
+    ]),
+    /**
+     * 获取到地理位置后的回调
+     * @param  {[type]} position [description]
+     * @return {[type]}          [description]
+     */
+    geoSuccess(position) {
+      this.getCurrentPositionInfo({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      });
+
+      console.log(position);
+    },
+    /**
+     * 获取当前位置，调用系统GPS API
+     * @return {[type]} [description]
+     */
+    getCurrentPosition() {
+      var position = {
+        timestamp: +new Date(),
+        coords: {
+          latitude: 30.191601799999994,
+          longitude: 120.1890461
+        }
+      }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.geoSuccess, (error) => {
+          console.log(error);
+          this.geoSuccess(position);
+        }, {
+          timeout: 10 * 1000,
+          enableHighAccuracy: false,
+          maximumAge: 5 * 60 * 1000
+        });
+
+        navigator.geolocation.watchPosition(this.geoSuccess);
+      } else {
+        console.log('浏览器不支持定位')
+        this.geoSuccess(position);
+      }
+    }
+  },
+
+  computed: {
+    ...mapState([
+      'address'
+    ])
+  },
 
   components: {
     footerGuide

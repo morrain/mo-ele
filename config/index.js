@@ -46,7 +46,14 @@ module.exports = {
         target: 'http://www.easy-mock.com',
         changeOrigin: true,
         pathRewrite: {
-            '^/api': '/mock/59e89a0921a50c465d91eeef/api'
+          '^/api': '/mock/59e89a0921a50c465d91eeef/api'
+        }
+      },
+      '/restapi': {
+        target: 'https://restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/restapi/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding'
         }
       }
     },
