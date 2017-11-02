@@ -3,19 +3,8 @@ import types from './types'
 
 export default {
 
-  async getCurrentPosition({ commit, dispatch }) {
-    let ret = await getCurrentPosition()
-
-    dispatch('getCurrentPositionInfo', {
-      latitude: ret.coords.latitude,
-      longitude: ret.coords.longitude
-    })
-
-    dispatch('getCurrentPositionWeather', {
-      from: 1,
-      lat: ret.coords.latitude,
-      lng: ret.coords.longitude
-    })
+  getCurrentPosition({ commit, dispatch }) {
+    getCurrentPosition(dispatch)
   },
   async getCurrentPositionInfo({ commit }, position) {
     let ret = await axios.get('/openapi/getCurrentPositionInfo', {
@@ -34,7 +23,7 @@ export default {
   }
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(dispatch) {
   var position = {
     timestamp: +new Date(),
     coords: {
@@ -42,25 +31,34 @@ function getCurrentPosition() {
       longitude: 120.1890461
     }
   }
+
+  function callback(position) {
+    dispatch('getCurrentPositionInfo', {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    })
+
+    dispatch('getCurrentPositionWeather', {
+      from: 1,
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    })
+  }
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        resolve(position)
-      }, (error) => {
+      navigator.geolocation.getCurrentPosition(callback, (error) => {
         console.log(error);
-        resolve(position)
+        callback(position)
       }, {
         timeout: 10 * 1000,
         enableHighAccuracy: false,
         maximumAge: 5 * 60 * 1000
       });
 
-      navigator.geolocation.watchPosition(function(position) {
-        resolve(position)
-      });
+      navigator.geolocation.watchPosition(callback);
     } else {
       console.log('浏览器不支持定位')
-      resolve(position)
+      callback(position)
     }
   });
 }
