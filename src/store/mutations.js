@@ -1,7 +1,10 @@
 import types from './types'
 
 export default {
-  [types.SET_ADDR_TITLE](state, title) {
-    state.addr_title = title;
+  [types.SET_ADDRESS](state, addr) {
+    state.address = addr;
+  },
+  [types.SET_WEATHER](state, weather) {
+    state.weather = weather;
   }
 }

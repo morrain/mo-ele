@@ -55,6 +55,13 @@ module.exports = {
         pathRewrite: {
           '^/openapi/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding'
         }
+      },
+      '/openapi/getCurrentPositionWeather': {
+        target: 'http://apis.eolinker.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/openapi/getCurrentPositionWeather': '/common/weather/getWeatherByGPS'
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

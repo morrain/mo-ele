@@ -4,16 +4,16 @@
       <div class="container">
         <div class="left">
           <i class="mo-ele-iconfont icon-location"></i>
-          <span>{{addr_title}}</span>
+          <span>{{getAddress}}</span>
           <i class="mo-ele-iconfont icon-arrow-down"></i>
         </div>
         <div class="right">
           <div class="r-left">
-            <span class="r-left-up">19°</span>
-            <span class="r-left-down">阴天</span>
+            <span class="r-left-up">{{getWeather.temperature}}°</span>
+            <span class="r-left-down">{{getWeather.text}}</span>
           </div>
           <div class="r-right">
-            <i class="mo-ele-iconfont icon-night"></i>
+            <img :src="getWeather.weather_pic" alt="">
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
 </template>
 <script>
 import footerGuide from '@/components/footerGuide'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
 
   name: 'msite',
@@ -36,7 +36,8 @@ export default {
 
   methods: {
     ...mapActions([
-      'getCurrentPositionInfo'
+      'getCurrentPositionInfo',
+      'getCurrentPositionWeather'
     ]),
     /**
      * 获取到地理位置后的回调
@@ -48,8 +49,11 @@ export default {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       });
-
-      console.log(position);
+      this.getCurrentPositionWeather({
+        from: 1,
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
     },
     /**
      * 获取当前位置，调用系统GPS API
@@ -83,9 +87,8 @@ export default {
   },
 
   computed: {
-    ...mapState([
-      'addr_title'
-    ])
+    ...mapState([]),
+    ...mapGetters(['getWeather', 'getAddress'])
   },
 
   components: {
@@ -112,8 +115,8 @@ header {
       flex: 1;
       display: flex;
       font-size: 16px;
+      max-width: 84%;
       >span {
-        max-width: 80%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -128,7 +131,7 @@ header {
         width: 30px;
         .r-left-up {
           font-size: 14px;
-          padding-left: 2px;
+          padding-left: 4px;
         }
         .r-left-down {
           font-size: 12px;
@@ -137,8 +140,11 @@ header {
         }
       }
       .r-right {
-        .mo-ele-iconfont {
-          font-size: 28px;
+        width: 28px;
+        height: 28px;
+        >img {
+          width: 100%;
+          height: 100%;
         }
       }
     }

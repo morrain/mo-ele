@@ -1,5 +1,8 @@
 const TYPES = {
-  SET_ADDR_TITLE: 'setAddressTitle'
+  SET_ADDRESS: 'setAddress',
+  GET_ADDRESS: 'getAddress',
+  SET_WEATHER: 'setWeather',
+  GET_WEATHER: 'getWeather'
 }
 
 export default TYPES

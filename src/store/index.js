@@ -7,9 +7,11 @@ Vue.use(Vuex)
 
 import actions from './actions'
 import mutations from './mutations'
+import getters from './getters'
 
 const state = {
-  addr_title: '获取地址中...',
+  weather: null, //当前天气
+  address: null, //当前位置信息
   latitude: 0, //当前位置纬度
   longitude: 0 //当前位置经度
 }
@@ -17,5 +19,6 @@ const state = {
 export default new Vuex.Store({
   state,
   actions,
-  mutations
+  mutations,
+  getters
 });
