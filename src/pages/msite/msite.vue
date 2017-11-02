@@ -40,54 +40,8 @@ export default {
 
   methods: {
     ...mapActions([
-      'getCurrentPositionInfo',
-      'getCurrentPositionWeather'
-    ]),
-    /**
-     * 获取到地理位置后的回调
-     * @param  {[type]} position [description]
-     * @return {[type]}          [description]
-     */
-    geoSuccess(position) {
-      this.getCurrentPositionInfo({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
-      });
-      this.getCurrentPositionWeather({
-        from: 1,
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      });
-    },
-    /**
-     * 获取当前位置，调用系统GPS API
-     * @return {[type]} [description]
-     */
-    getCurrentPosition() {
-      var position = {
-        timestamp: +new Date(),
-        coords: {
-          latitude: 30.191601799999994,
-          longitude: 120.1890461
-        }
-      }
-
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.geoSuccess, (error) => {
-          console.log(error);
-          this.geoSuccess(position);
-        }, {
-          timeout: 10 * 1000,
-          enableHighAccuracy: false,
-          maximumAge: 5 * 60 * 1000
-        });
-
-        navigator.geolocation.watchPosition(this.geoSuccess);
-      } else {
-        console.log('浏览器不支持定位')
-        this.geoSuccess(position);
-      }
-    }
+      'getCurrentPosition'
+    ])
   },
 
   computed: {
@@ -128,6 +82,7 @@ header {
       max-width: 84%;
       >span {
         @include text-overflow;
+        width: inherit;
       }
     }
     .right {

@@ -7,9 +7,9 @@
     </mt-search>
     <template v-if="locations.length==0">
       <mt-cell class="lab-current" title="当前地址"></mt-cell>
-      <mt-cell class="val-current" :title="getAddress" @click="handleRelocate">
+      <mt-cell class="val-current" :title="getAddress">
         <i class="mo-ele-iconfont icon-locate"></i>
-        <span>重新定位</span>
+        <span @click="getCurrentPosition">重新定位</span>
       </mt-cell>
     </template>
     <template v-else>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
 
@@ -42,9 +42,9 @@ export default {
     handleBack() {
       this.$emit('back');
     },
-    handleRelocate() {
-
-    }
+    ...mapActions([
+      'getCurrentPosition'
+    ])
   }
 };
 
