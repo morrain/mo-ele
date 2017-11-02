@@ -1,5 +1,7 @@
+import types from './types'
+
 export default {
-  setAddress(state, address) {
-    state.address = address;
+  [types.SET_ADDR_TITLE](state, title) {
+    state.addr_title = title;
   }
 }

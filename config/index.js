@@ -49,11 +49,11 @@ module.exports = {
           '^/api': '/mock/59e89a0921a50c465d91eeef/api'
         }
       },
-      '/restapi': {
+      '/openapi/getCurrentPositionInfo': {
         target: 'https://restapi.ele.me',
         changeOrigin: true,
         pathRewrite: {
-          '^/restapi/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding'
+          '^/openapi/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding'
         }
       }
     },

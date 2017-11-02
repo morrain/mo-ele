@@ -4,7 +4,7 @@
       <div class="container">
         <div class="left">
           <i class="mo-ele-iconfont icon-location"></i>
-          <span>{{address}}</span>
+          <span>{{addr_title}}</span>
           <i class="mo-ele-iconfont icon-arrow-down"></i>
         </div>
         <div class="right">
@@ -84,7 +84,7 @@ export default {
 
   computed: {
     ...mapState([
-      'address'
+      'addr_title'
     ])
   },
 
@@ -120,12 +120,12 @@ header {
       }
     }
     .right {
-      width: 52px;
       font-size: 12px;
       display: flex;
       .r-left {
         display: flex;
         flex-direction: column;
+        width: 30px;
         .r-left-up {
           font-size: 14px;
           padding-left: 2px;

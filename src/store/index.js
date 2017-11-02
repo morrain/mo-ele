@@ -9,7 +9,7 @@ import actions from './actions'
 import mutations from './mutations'
 
 const state = {
-  address: '获取地址中...',
+  addr_title: '获取地址中...',
   latitude: 0, //当前位置纬度
   longitude: 0 //当前位置经度
 }
