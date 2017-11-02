@@ -1,7 +1,7 @@
 <template>
   <div id="msite">
     <header>
-      <div class="container">
+      <div class="container" @click="showAddress=true">
         <div class="left">
           <i class="mo-ele-iconfont icon-location"></i>
           <span>{{getAddress}}</span>
@@ -17,6 +17,9 @@
           </div>
         </div>
       </div>
+      <mt-popup v-model="showAddress" position="right">
+        <page-address @back="showAddress=false"></page-address>
+      </mt-popup>
     </header>
     <main>
     </main>
@@ -25,6 +28,7 @@
 </template>
 <script>
 import footerGuide from '@/components/footerGuide'
+import pageAddress from './address/address'
 import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
 
@@ -92,12 +96,13 @@ export default {
   },
 
   components: {
-    footerGuide
+    footerGuide,
+    pageAddress
   },
 
   data() {
     return {
-
+      showAddress: false
     };
   }
 };
@@ -108,6 +113,11 @@ header {
   padding: 10px 14px 0;
   background-image: linear-gradient(90deg, #0af, #0085ff);
   color: #fff;
+  .mint-popup-right {
+    height: 101%;
+    width: 100%;
+    background-color: #f4f4f4;
+  }
   .container {
     display: flex;
     align-items: center;
@@ -117,9 +127,7 @@ header {
       font-size: 16px;
       max-width: 84%;
       >span {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        @include text-overflow;
       }
     }
     .right {
