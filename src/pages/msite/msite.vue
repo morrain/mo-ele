@@ -129,6 +129,7 @@ header {
         display: flex;
         flex-direction: column;
         width: 30px;
+        font-weight: 100;
         .r-left-up {
           font-size: 14px;
           padding-left: 4px;
