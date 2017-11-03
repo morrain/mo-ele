@@ -4,6 +4,7 @@ import types from './types'
 export default {
 
   getCurrentPosition({ commit, dispatch }) {
+    commit(types.SET_STATE, true);
     getCurrentPosition(dispatch)
   },
   async getCurrentPositionInfo({ commit }, position) {

@@ -10,6 +10,7 @@ import mutations from './mutations'
 import getters from './getters'
 
 const state = {
+  islocating: true, //当前是否正在定位
   weather: null, //当前天气
   address: null, //当前位置信息
   latitude: 0, //当前位置纬度

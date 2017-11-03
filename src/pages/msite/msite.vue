@@ -7,7 +7,7 @@
           <span>{{getAddress}}</span>
           <i class="mo-ele-iconfont icon-arrow-down"></i>
         </div>
-        <div class="right">
+        <div v-if="weather" class="right">
           <div class="r-left">
             <span class="r-left-up">{{getWeather.temperature}}°</span>
             <span class="r-left-down">{{getWeather.text}}</span>
@@ -45,7 +45,7 @@ export default {
   },
 
   computed: {
-    ...mapState([]),
+    ...mapState(['weather']),
     ...mapGetters(['getWeather', 'getAddress'])
   },
 

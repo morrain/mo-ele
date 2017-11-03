@@ -8,8 +8,8 @@
     <template v-if="locations.length==0">
       <mt-cell class="lab-current" title="当前地址"></mt-cell>
       <mt-cell class="val-current" :title="getAddress">
-        <i class="mo-ele-iconfont icon-locate"></i>
-        <span @click="getCurrentPosition">重新定位</span>
+        <i class="mo-ele-iconfont icon-locate" :class="{'f-locating':islocating}"></i>
+        <span @click="handleGetCurrentPosition">重新定位</span>
       </mt-cell>
     </template>
     <template v-else>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
 
@@ -33,6 +33,7 @@ export default {
   },
 
   computed: {
+    ...mapState(['islocating']),
     ...mapGetters([
       'getAddress'
     ])
@@ -41,6 +42,10 @@ export default {
   methods: {
     handleBack() {
       this.$emit('back');
+    },
+    handleGetCurrentPosition() {
+      if (this.islocating) return;
+      this.getCurrentPosition();
     },
     ...mapActions([
       'getCurrentPosition'
@@ -113,6 +118,20 @@ $bk-color:#f4f4f4;
       background-color: #fff;
       height: 44px;
       min-height: 44px;
+      .icon-locate {
+        display: inline-block;
+        &.f-locating {
+          animation: rotate 1.5s infinite linear;
+        }
+        @keyframes rotate {
+          0% {
+            @include xuan-zhuan(0)
+          }
+          100% {
+            @include xuan-zhuan(360)
+          }
+        }
+      }
     }
   }
 }

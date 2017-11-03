@@ -16,3 +16,15 @@
     -webkit-box-orient: vertical;
   }
 }
+/**
+ * 旋转动画
+ * @param  {[type]} $deg:360 [description] 默认360
+ * @return {[type]}          [description]
+ */
+@mixin xuan-zhuan($deg:360){
+    transform:rotate($deg+deg);
+    -webkit-transform:rotate($deg+deg);
+    -moz-transform:rotate($deg+deg);
+    -o-transform:rotate($deg+deg);
+    -ms-transform:rotate($deg+deg);
+}
