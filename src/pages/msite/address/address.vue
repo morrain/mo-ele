@@ -13,13 +13,14 @@
       </mt-cell>
     </template>
     <template v-else>
-      <mt-cell v-for="location in locations" :title="location.name" :value="location.name" :key="location.id">
+      <mt-cell v-for="location in locations" :title="location.name" :label="location.address" :key="location.id">
       </mt-cell>
     </template>
   </div>
 </template>
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
+import _ from 'lodash'
 
 export default {
 
@@ -28,18 +29,40 @@ export default {
   data() {
     return {
       keyword: '',
+      isSearching: false,
       locations: []
     };
   },
 
   computed: {
-    ...mapState(['islocating']),
+    ...mapState(['islocating', 'address']),
     ...mapGetters([
       'getAddress'
     ])
   },
 
+  watch: {
+    keyword: function() {
+      this.isSearching = true;
+      this.doSearch();
+    }
+  },
+
   methods: {
+    doSearch: _.debounce(function() {
+      this.$api.getNearby({
+        offset: 0,
+        limit: 20,
+        keyword: this.keyword,
+        longitude: this.address.longitude,
+        latitude: this.address.latitude
+      }).then(locations => {
+        this.isSearching = false;
+        this.locations = locations;
+      }).catch(() => {
+        this.isSearching = false;
+      });
+    }, 1000),
     handleBack() {
       this.$emit('back');
     },
@@ -121,7 +144,7 @@ $bk-color:#f4f4f4;
       .icon-locate {
         display: inline-block;
         &.f-locating {
-          animation: rotate 1.5s infinite linear;
+          animation: rotate 1s infinite linear;
         }
         @keyframes rotate {
           0% {

@@ -49,18 +49,19 @@ module.exports = {
           '^/api': '/mock/59e89a0921a50c465d91eeef/api'
         }
       },
-      '/openapi/getCurrentPositionInfo': {
+      '/openapi/ele': {
         target: 'https://restapi.ele.me',
         changeOrigin: true,
         pathRewrite: {
-          '^/openapi/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding'
+          '^/openapi/ele/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding',
+          '^/openapi/ele/getNearby': '/bgs/poi/search_poi_nearby'
         }
       },
-      '/openapi/getCurrentPositionWeather': {
+      '/openapi/eolinker': {
         target: 'http://apis.eolinker.com',
         changeOrigin: true,
         pathRewrite: {
-          '^/openapi/getCurrentPositionWeather': '/common/weather/getWeatherByGPS'
+          '^/openapi/eolinker/getCurrentPositionWeather': '/common/weather/getWeatherByGPS'
         }
       }
     },

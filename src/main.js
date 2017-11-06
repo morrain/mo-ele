@@ -5,8 +5,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import axios from 'axios'
-Vue.prototype.$http = axios
+import api from './store/api'
+Vue.prototype.$api = api
+
 Vue.config.productionTip = false
 
 import MintUI from 'mint-ui'
