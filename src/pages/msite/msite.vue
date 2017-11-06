@@ -35,12 +35,12 @@ export default {
   name: 'msite',
 
   mounted() {
-    this.getCurrentPosition();
+    this.doGetGeoPosition();
   },
 
   methods: {
     ...mapActions([
-      'getCurrentPosition'
+      'doGetGeoPosition'
     ])
   },
 

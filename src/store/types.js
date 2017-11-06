@@ -1,9 +1,29 @@
-const TYPES = {
-  SET_ADDRESS: 'setAddress',
-  GET_ADDRESS: 'getAddress',
-  SET_WEATHER: 'setWeather',
-  GET_WEATHER: 'getWeather',
-  SET_STATE: 'setState'
-}
+/**
+ * 命名常量
+ */
 
-export default TYPES
+export default {
+  /**
+   * 所有getter的名称
+   */
+  getters: {
+    ADDRESS: 'getAddress',
+    WEATHER: 'getWeather'
+  },
+  /**
+   * 所有mutations的名称
+   */
+  mutations: {
+    ADDRESS: 'setAddress',
+    WEATHER: 'setWeather',
+    STATE: 'setState'
+  },
+  /**
+   * 所有actions的名称
+   */
+  actions: {
+    POSITION: 'doGetPosition',
+    WEATHER: 'doGetWeather',
+    GEOLOCATION: 'doGetGeoPosition'
+  }
+}

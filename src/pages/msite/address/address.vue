@@ -68,10 +68,10 @@ export default {
     },
     handleGetCurrentPosition() {
       if (this.islocating) return;
-      this.getCurrentPosition();
+      this.doGetGeoPosition();
     },
     ...mapActions([
-      'getCurrentPosition'
+      'doGetGeoPosition'
     ])
   }
 };
