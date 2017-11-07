@@ -31,7 +31,7 @@ module.exports = merge(baseWebpackConfig, {
   // cheap-module-eval-source-map is faster for development
   // 最新的配置为 cheap-module-eval-source-map，虽然 cheap-module-eval-source-map更快，但它的定位不准确
   // 所以，换成 eval-source-map
-  devtool: '#cheap-module-eval-source-map',
+  devtool: '#eval-source-map',
   plugins: [
     // definePlugin 接收字符串插入到代码当中, 所以你需要的话可以写上 JS 的字符串
     // 此处，插入适当的环境
