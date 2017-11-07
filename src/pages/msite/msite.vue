@@ -22,6 +22,14 @@
       </mt-popup>
     </header>
     <main>
+      <section class="hot-words-wrap">
+        <div class="hot-words">
+          <a v-for="word in hotwords" class="hot-word">{{word.word}}</a>
+        </div>
+      </section>
+      <section class="banner">
+        <img src="//fuss10.elemecdn.com/1/4f/423cd895f75b33a0139470c435257png.png?imageMogr/format/webp/thumbnail/!750x210r/gravity/Center/crop/750x210/" alt="">
+      </section>
     </main>
     <footer-guide></footer-guide>
   </div>
@@ -38,6 +46,17 @@ export default {
     this.doGetGeoPosition();
   },
 
+  watch: {
+    address: function() {
+      this.$api.getHotWords({
+        latitude: this.address.latitude,
+        longitude: this.address.longitude
+      }).then(hotwords => {
+        this.hotwords = hotwords;
+      })
+    }
+  },
+
   methods: {
     ...mapActions([
       'doGetGeoPosition'
@@ -45,7 +64,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['weather']),
+    ...mapState(['weather', 'address']),
     ...mapGetters(['getWeather', 'getAddress'])
   },
 
@@ -56,7 +75,8 @@ export default {
 
   data() {
     return {
-      showAddress: false
+      showAddress: false,
+      hotwords: []
     };
   }
 };
@@ -83,6 +103,7 @@ header {
       >span {
         @include text-overflow;
         width: inherit;
+        font-weight: 400;
       }
     }
     .right {
@@ -92,7 +113,6 @@ header {
         display: flex;
         flex-direction: column;
         width: 30px;
-        font-weight: 100;
         .r-left-up {
           font-size: 14px;
           padding-left: 4px;
@@ -110,6 +130,29 @@ header {
           width: 100%;
           height: 100%;
         }
+      }
+    }
+  }
+}
+
+main {
+  .banner {
+    >img {
+      width: 100%;
+    }
+  }
+  .hot-words-wrap {
+    background-image: linear-gradient(90deg, #0af, #0085ff);
+    padding: 8px 14px 15px;
+
+    .hot-words {
+      white-space: nowrap;
+      width: 100%;
+      overflow-x: auto;
+      .hot-word {
+        color: #fff;
+        margin-right: 15px;
+        font-size: 12px;
       }
     }
   }

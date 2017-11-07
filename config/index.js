@@ -54,7 +54,8 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/openapi/ele/getCurrentPositionInfo': '/bgs/poi/reverse_geo_coding',
-          '^/openapi/ele/getNearby': '/bgs/poi/search_poi_nearby'
+          '^/openapi/ele/getNearby': '/bgs/poi/search_poi_nearby',
+          '^/openapi/ele/getHotWords': '/shopping/v3/hot_search_words'
         }
       },
       '/openapi/eolinker': {

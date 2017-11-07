@@ -6,6 +6,11 @@ import axios from 'axios'
 import _ from 'lodash'
 
 export default {
+  async getHotWords(params) {
+    return (await axios.get('/openapi/ele/getHotWords', {
+      params: params
+    })).data;
+  },
   /**
    * [根据地理位置和关键字获取附近的店]
    * @param  {Object} params 参数

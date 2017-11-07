@@ -130,12 +130,10 @@ $bk-color:#f4f4f4;
           background-color: $bk-color;
           font-size: 12px;
           color: #999;
-          font-weight: 200;
         }
       }
       .mint-searchbar-cancel {
         font-size: 12px;
-        font-weight: 200;
       }
     }
   }
@@ -153,7 +151,6 @@ $bk-color:#f4f4f4;
       .mint-cell-value {
         color: #2395ff;
         font-size: 14px;
-        font-weight: 200;
         >span {
           margin-left: 6px;
         }
