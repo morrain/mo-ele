@@ -10,7 +10,7 @@ export default {
 
 </script>
 <style src='normalize.css'></style>
-<style src='./assets/mo-fonts.css'></style>
+<style src='./style/mo-fonts.css'></style>
 <style src='mint-ui/lib/style.css'></style>
 <style lang='scss'>
 //引入项目图标库，使用http://iconfont.cn/  托管
